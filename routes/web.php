@@ -16,6 +16,7 @@ Route::get('/trang-chu', 'HomeController@index');
 Route::get('/', 'HomeController@Dashboard');
 
 Route::get('lien-he','HomeController@Contact');
+Route::get('tu-van','HomeController@Research');
 
 Route::get('loai-tin/{unsigned_name}','HomeController@LoaiTin');
 

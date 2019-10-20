@@ -27,11 +27,14 @@ class HomeController extends Controller
 	}
 	
 	public function Dashboard(){
-		return view('page.dashboard');
+		return view('page.home');
 	}
 
     public function Contact(){
     	return view('page.contact');
+	}
+	public function Research(){
+    	return view('page.research');
     }
 
     public function LoaiTin($unsigned_name){

@@ -9,16 +9,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" style="font-size: 1.4em;" href="{{ url('/') }}">tinnhanh.net</a>
+                <a class="navbar-brand" style="font-size: 1.4em;" href="{{ url('/') }}">Hướng nghiệp</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Giới thiệu</a>
-                    </li>
+                
                     <li>
                         <a href="lien-he">Liên hệ</a>
+                    </li>
+                    <li>
+                        <a href="tu-van">Tư vấn chọn trường</a>
                     </li>
                 </ul>
 
@@ -67,5 +68,8 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
+
     </nav>
+   
+   
 <!-- End Header -->
