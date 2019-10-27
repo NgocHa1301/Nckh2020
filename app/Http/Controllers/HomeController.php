@@ -178,7 +178,7 @@ class HomeController extends Controller
 	
 		$idList = TuyenSinh::where('nganh_hoc','like',"%$nganhhoc%")->Where('khoi_thi','like',"%$khoithi%")->Where('diemchuan','<=',number_format($tongdiem))->pluck('id')->toArray();
 		$tintuc = TinTuc::wherein('idTuyenSinh', $idList)->paginate(5);
-		return view('page.research-result',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
-		// return view('page.search',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
+		// return view('page.xxxx',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
+		return view('page.search-result',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
     }
 }

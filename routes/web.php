@@ -23,11 +23,12 @@ Route::get('/kien', function(){
 	// }
 	// $TuyenSinh = TuyenSinh::find(2);
 	
-	$tintucList = TinTuc::wherein('idTuyenSinh', $idList)->paginate(5);
-
-	foreach($tintucList as $TinTuc){
-		echo $TinTuc->TomTat;
-	}
+	$tintuc = TinTuc::wherein('idTuyenSinh', $idList)->paginate(5);
+	// return view('page.xxxx',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
+	return view('page.xxxx');
+	// foreach($tintucList as $TinTuc){
+	// 	echo $TinTuc->TomTat;
+	// }
 
 	// foreach($idList  as $id){
 		
