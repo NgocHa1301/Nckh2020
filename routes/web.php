@@ -10,8 +10,47 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\TuyenSinh;
+use App\TinTuc;
+use App\TheLoai;
 Route::get('/trang-chu', 'HomeController@index');
+Route::get('/kien', function(){
+	$idList = TuyenSinh::where('nganh_hoc','=',"1")->Where('khoi_thi','=',"A01")->Where('diemchuan','>=',number_format("21"))->pluck('id')->toArray();
+	// foreach($TuyenSinhList  as $TuyenSinh){
+	// 	foreach($TuyenSinh -> TinTuc as $TinTuc){
+	// 	echo $TinTuc->TomTat;
+	// }
+	// }
+	// $TuyenSinh = TuyenSinh::find(2);
+	
+	$tintucList = TinTuc::wherein('idTuyenSinh', $idList)->paginate(5);
+
+	foreach($tintucList as $TinTuc){
+		echo $TinTuc->TomTat;
+	}
+
+	// foreach($idList  as $id){
+		
+	// 	echo $id;
+	
+	// }
+
+// 	$num = "1000.314"; 
+  
+// // Convert string in number using  
+// // number_format(), function 
+// echo number_format($num), "\n"; 
+  
+// // Convert string in number using  
+// // number_format(), function 
+// echo number_format($num, 2); 
+	
+	
+	
+});
+Route::get('reseach-score','HomeController@SearchByScore');
+// Route::get('reseach-score',function(){
+// });
 
 Route::get('/', 'HomeController@Dashboard');
 
@@ -39,6 +78,7 @@ Route::get('dang-ky-tai-khoan','HomeController@Register');
 Route::post('dang-ky-tai-khoan','HomeController@DoRegister');
 
 Route::get('tim-kiem','HomeController@Search');
+
 
 Route::get('admin/login','UserController@Login');
 

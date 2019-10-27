@@ -10,6 +10,7 @@ use App\LoaiTin;
 use App\TinTuc;
 use App\User;
 use App\Slide;
+use App\TuyenSinh;
 
 class HomeController extends Controller
 {
@@ -34,7 +35,7 @@ class HomeController extends Controller
     	return view('page.contact');
 	}
 	public function Research(){
-    	return view('page.research');
+    	return view('page.research-score');
     }
 
     public function LoaiTin($unsigned_name){
@@ -166,5 +167,18 @@ class HomeController extends Controller
     	$tintuc = TinTuc::where('TieuDe','like',"%$request->keyword%")->orWhere('TomTat','like',"%$request->keyword%")->orWhere('TomTat','like',"%$request->keyword%")->paginate(5)->appends(['keyword' => $keyword]);
 
     	return view('page.search',['tintuc' => $tintuc, 'keyword' => $request->keyword]);
+	}
+	public function SearchByScore(Request $request){
+		$nganhhoc = $request->nganhhoc;
+		$tongdiem = $request->tongdiem;
+		$khoithi = $request->khoithi;
+		error_log($nganhhoc);
+		error_log($tongdiem);
+		error_log($khoithi);
+	
+		$idList = TuyenSinh::where('nganh_hoc','like',"%$nganhhoc%")->Where('khoi_thi','like',"%$khoithi%")->Where('diemchuan','<=',number_format($tongdiem))->pluck('id')->toArray();
+		$tintuc = TinTuc::wherein('idTuyenSinh', $idList)->paginate(5);
+		return view('page.research-result',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
+		// return view('page.search',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
     }
 }

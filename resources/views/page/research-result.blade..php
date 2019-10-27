@@ -1,5 +1,5 @@
 @section('title')
-    Tìm Kiếm với từ khóa "{{ $keyword }}"
+Tìm Kiếm với từ khóa "{{ $keyword }}"
 @endsection
 
 @extends('index')
@@ -15,7 +15,7 @@
         <div class="col-md-9 ">
             <div class="panel panel-default">
                 <div class="panel-heading" style="background-color:#337AB7; color:white;">
-                    <h4><b>Tìm thấy tổng cộng {{ count($tintuc) }} tin tức có liên quan đến từ khóa "{{ $keyword }}".</b></h4>
+                    <h4><b>Tìm thấy tổng cộng {{ count($tintuc) }} thông tin phù hợp.</b></h4>
                 </div>
 
                 @foreach($tintuc as $chitiet)

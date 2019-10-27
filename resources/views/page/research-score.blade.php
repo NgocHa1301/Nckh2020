@@ -1,42 +1,29 @@
 @section('title')
-    Tư vấn chọn trường
+Tư vấn chọn trường
 @endsection
-
 @extends('index')
-
 @section('content')
-    <!-- Page Content -->
-    <div class="container">
-
-    	@include('block.slide')
-
-        <div class="space20"></div>
-
-
-        <div class="row main-left">
-            @include('block.menu')
-
-            <div class="col-md-9">
-	            <div class="panel panel-default">            
-	            	
-            <h2 class="title-ora bottom10">
-                <span><strong>Tư vấn chọn trường đại học, cao đẳng năm 2019 - 2020</strong></span>
-            </h2>
-            <h3 class="s14">
-                <span>Tư vấn chọn trường đại học, cao đẳng 2019 - 2020 bằng cách chọn nhóm nghành,nhập số điểm bạn có thể đạt được trong kỳ thi THPTQG, ĐH- CĐ 2019 - 2020.</span><br>
-                <!-- <span style="color:red">Học sinh lưu ý, để làm hồ sơ chính xác thí sinh xem mã ngành, tên ngành, khối xét tuyển năm 2018 <a href="https://tin.tuyensinh247.com/danh-sach-truong-cong-bo-phuong-an-tuyen-sinh-nam-2018-c24a36655.html">tại đây</a> </span> -->
-            </h3>
-
-            <div class="line-arr relative">
-                <span class="absolute"></span>
-            </div>
-            <div class="seach-nv2" style="text-align:center">
-                <form id="form_tv1" onkeypress="return keyTuVan(event)">
-
-                   <div class="ts-branch">
-                     <div class="ts">
-                        <strong class="width50" style="">Chọn nhóm ngành</strong>
-                        <select name="select_branch" id="select_branch">
+<!-- Page Content -->
+<div class="container">
+   @include('block.slide')
+   <div class="space20"></div>
+   <div class="row main-left">
+      @include('block.menu')
+      <div class="col-md-9">
+      <div class="container-fluid">
+      <div class="row">
+         <div class="col-lg-12">
+            <h1 class="page-header">Tư vấn chọn trường đại học, cao đẳng
+            </h1>
+         </div>
+         <!-- /.col-lg-12 -->
+         <div class="col-lg-7" style="padding-bottom:120px">
+           
+            <form action="reseach-score" method="GET">
+            {{ csrf_field() }}
+            <div class="form-group">
+               <p><label>Chọn nhóm ngành</label></p>
+               <select class="form-control input-width catefield" name="nganhhoc" id="nganhhoc">
                             <option value="0" selected="selected">---Tất cả các nghành---</option>
                                                         <option value="1">Kế toán - Kiểm toán</option>
 
@@ -107,25 +94,15 @@
                                                         <option value="34">Khoa học tư nhiên khác</option>
 
                                                     </select>
-                    </div>
-                    <div class="ts ts-txtdiem">
-                        <strong class="width50">Nhập tổng điểm của bạn:</strong>
-                        <input placeholder="Tổng điểm 3 môn dự kiến" value="" style="height:30px" class="shadow" id="txt_tra_nguyen_vong_nhanh_diem" name="txt_tra_nguyen_vong_nhanh_diem" type="text">
-                        <p style="text-align: left; color:#666"><strong>Lưu ý:</strong> Hệ thống sẽ hiển thị các trường có điểm chuẩn nhỏ hơn hoặc bằng tổng điểm của em, muốn xem tất cả các trường các em bỏ trống mục tổng điểm</p>
-                    </div>  
-
-                    <div class="ts">
-                        <strong class="width50">Đại học / Cao đẳng</strong>
-                        <select name="select_school_type" id="select_school_type">
-                            <option value="0">--Loại hình trường--</option>
-                            <option value="2">Đại học</option>
-                            <option value="1">Cao đẳng</option>
-
-                        </select>
-                    </div>
-                <div class="ts">
-                  <strong class="width50">Khối thi</strong>
-                  <select name="block" id="block">
+            </div>
+            <div class="form-group">
+               <p><label>Nhập tổng điểm</label></p>
+               <input class="form-control input-width"  placeholder="Tổng điểm 3 môn dự kiến" type="tongdiem" name="tongdiem" />
+               <p style="text-align: left; color:#666"><strong>Lưu ý:</strong> Hệ thống sẽ hiển thị các trường có điểm chuẩn nhỏ hơn hoặc bằng tổng điểm của em, muốn xem tất cả các trường các em bỏ trống mục tổng điểm</p>
+            </div>
+            <div class="form-group">
+               <p><label>Khối thi</label></p>
+               <select class="form-control input-width catefield" name="khoithi" id="block">
                       <option value="">--Khối thi--</option>
                                                 <option value="A00">A00 - Toán, Vật lí, Hóa học</option>
                                                     <option value="A01">A01 - Toán, Vật lí, Tiếng Anh</option>
@@ -317,108 +294,16 @@
                                                     <option value="V10">V10 - </option>
                                                     <option value="V11">V11 - </option>
                                             </select>
-              </div>
-          </div>
-
-
-          
-
-          <div id="fulloption" style="display: none;">
-            <div class="ts">
-                <strong class="width50">Tỉnh thành</strong>
-                <select name="select_province" id="select_province">
-                    <option value="0" selected="selected">---Tất cả các tỉnh/thành phố---</option>
-                                                <option value="53">An Giang</option>
-                                                        <option value="43">Bà Rịa- Vũng Tàu</option>
-                                                        <option value="26">Bắc Giang</option>
-                                                        <option value="61">Bắc Kạn</option>
-                                                        <option value="52">Bạc Liêu</option>
-                                                        <option value="59">Bắc Ninh</option>
-                                                        <option value="44">Bến Tre</option>
-                                                        <option value="50">Bình Dương</option>
-                                                        <option value="65">Bình Định</option>
-                                                        <option value="56">Bình Phước</option>
-                                                        <option value="20">Bình Thuận</option>
-                                                        <option value="30">Cà Mau</option>
-                                                        <option value="12">Cần Thơ</option>
-                                                        <option value="25">Cao Bằng</option>
-                                                        <option value="239">Cục Nhà trường - Bộ Quốc phòng</option>
-                                                        <option value="24">Đà Nẵng</option>
-                                                        <option value="57">Đắk Lắk</option>
-                                                        <option value="29">Đắk Nông</option>
-                                                        <option value="51">Điện Biên</option>
-                                                        <option value="48">Đồng Nai</option>
-                                                        <option value="19">Đồng Tháp</option>
-                                                        <option value="10">Gia Lai</option>
-                                                        <option value="49">Hà Giang</option>
-                                                        <option value="33">Hà Nam</option>
-                                                        <option value="42">Hà Nội</option>
-                                                        <option value="15">Hà Tĩnh</option>
-                                                        <option value="34">Hải Dương</option>
-                                                        <option value="28">Hải Phòng</option>
-                                                        <option value="4">Hậu Giang</option>
-                                                        <option value="23">Hồ Chí Minh</option>
-                                                        <option value="8">Hòa Bình</option>
-                                                        <option value="7">Huế</option>
-                                                        <option value="5">Hưng Yên</option>
-                                                        <option value="32">Khánh Hòa</option>
-                                                        <option value="46">Kiên Giang</option>
-                                                        <option value="58">Kon Tum</option>
-                                                        <option value="1">Lai Châu</option>
-                                                        <option value="6">Lâm Đồng</option>
-                                                        <option value="63">Lạng Sơn</option>
-                                                        <option value="9">Lào Cai</option>
-                                                        <option value="54">Long An</option>
-                                                        <option value="31">Nam Định</option>
-                                                        <option value="18">Nghệ An</option>
-                                                        <option value="16">Ninh Bình</option>
-                                                        <option value="55">Ninh Thuận</option>
-                                                        <option value="47">Phú Thọ</option>
-                                                        <option value="3">Phú Yên</option>
-                                                        <option value="37">Quảng Bình</option>
-                                                        <option value="13">Quảng Nam</option>
-                                                        <option value="40">Quảng Ngãi</option>
-                                                        <option value="36">Quảng Ninh</option>
-                                                        <option value="2">Quảng Trị</option>
-                                                        <option value="45">Sóc Trăng</option>
-                                                        <option value="21">Sơn La</option>
-                                                        <option value="17">Tây Ninh</option>
-                                                        <option value="14">Thái Bình</option>
-                                                        <option value="11">Thái Nguyên</option>
-                                                        <option value="38">Thanh Hóa</option>
-                                                        <option value="41">Tiền Giang</option>
-                                                        <option value="99">Tỉnh Test</option>
-                                                        <option value="27">Trà Vinh</option>
-                                                        <option value="62">Tuyên Quang</option>
-                                                        <option value="39">Vĩnh Long</option>
-                                                        <option value="60">Vĩnh Phúc</option>
-                                                        <option value="22">Yên Bái</option>
-                                                </select>
-                </div>
-                
-                <div class="ts">
-                    <strong class="width50">Công lập / Dân lập</strong>
-                    <select name="training_method" id="training_method">
-                        <option value="0">--Chọn--</option>
-                        <option value="1">Công lập</option>
-                        <option value="2">Dân lập</option>
-                    </select>
-                </div>
             </div>
-            <div class="last clearfix">
-                <p class="magT20" align="center"><button class="btn_orange" type="button" onclick="btnTuVan('form_tv1');">Tìm trường</button></p>
-            </div>
-            <div class="ts">
-                <span class="clblue2"><a id="searchfull" href="javascript:void(0);">Tìm kiếm nâng cao</a></span>
-            </div>
-
-        </form>
-    </div>
-
-	            </div>
-        	</div>
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- end Page Content -->
+            <button type="submit" class="btn btn-default">Tìm kiếm</button>
+            <form>
+         </div>
+      </div>
+      <!-- /.row -->
+   </div>
+      </div>
+   </div>
+   <!-- /.row -->
+</div>
+<!-- end Page Content -->
 @endsection
