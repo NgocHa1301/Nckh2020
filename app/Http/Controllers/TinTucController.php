@@ -12,7 +12,8 @@ class TinTucController extends Controller
 {
     //
     public function getDanhSach(){
-    	$tintuc = TinTuc::all();
+		// $tintuc = TinTuc::all();
+		$tintuc = TinTuc::latest()->take(10)->get();
     	return view('admin.tintuc.danhsach',['tintuc'=>$tintuc]);
     }
 

@@ -15,7 +15,15 @@ use App\TinTuc;
 use App\TheLoai;
 Route::get('/trang-chu', 'HomeController@index');
 Route::get('/kien', function(){
-	$idList = TuyenSinh::where('nganh_hoc','=',"1")->Where('khoi_thi','=',"A01")->Where('diemchuan','>=',number_format("21"))->pluck('id')->toArray();
+	$tintuc = TinTuc::all();
+	foreach($tintuc as $chitiet){
+
+        echo $chitiet->LoaiTin->TheLoai->Ten ;
+        echo $chitiet->LoaiTin->Ten ;
+	}
+        
+
+	// $idList = TuyenSinh::where('nganh_hoc','=',"1")->Where('khoi_thi','=',"A01")->Where('diemchuan','>=',number_format("21"))->pluck('id')->toArray();
 	// foreach($TuyenSinhList  as $TuyenSinh){
 	// 	foreach($TuyenSinh -> TinTuc as $TinTuc){
 	// 	echo $TinTuc->TomTat;
@@ -23,9 +31,9 @@ Route::get('/kien', function(){
 	// }
 	// $TuyenSinh = TuyenSinh::find(2);
 	
-	$tintuc = TinTuc::wherein('idTuyenSinh', $idList)->paginate(5);
-	// return view('page.xxxx',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
-	return view('page.xxxx');
+	// $tintuc = TinTuc::wherein('idTuyenSinh', $idList)->paginate(5);
+	// // return view('page.xxxx',['tintuc' => $tintuc, 'keyword' => "Kết quả tra cứu"]);
+	// return view('page.xxxx');
 	// foreach($tintucList as $TinTuc){
 	// 	echo $TinTuc->TomTat;
 	// }

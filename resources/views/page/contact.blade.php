@@ -28,13 +28,13 @@
 					    
                         <div class="break"></div>
 					   	<h4><span class= "glyphicon glyphicon-home "></span> Địa chỉ : </h4>
-                        <p>90-92 Lê Thị Riêng, Quận 1, Bến Thành, HCM </p>
+                        <p> Tổ 6, phường Túc Duyên, Thành phố Thái Nguyên, tỉnh Thái Nguyên </p>
 
                         <h4><span class="glyphicon glyphicon-envelope"></span> Email : </h4>
-                        <p>90-92 Lê Thị Riêng, Quận 1, Bến Thành, HCM </p>
+                        <p>(0208) 656 2288 </p>
 
                         <h4><span class="glyphicon glyphicon-phone-alt"></span> Điện thoại : </h4>
-                        <p>90-92 Lê Thị Riêng, Quận 1, Bến Thành, HCM </p>
+                        <p>c3chuyen@thainguyen.edu.vn </p>
 
 
 
