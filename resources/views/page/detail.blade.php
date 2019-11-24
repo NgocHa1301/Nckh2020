@@ -21,6 +21,7 @@
 			<p class="lead">
 				by <a href="#">Admin</a>
 			</p>
+		
 
 			<!-- Preview Image -->
 			<img class="img-responsive" src="upload/tintuc/{{ $tintuc->Hinh }}" alt="Hình ảnh của bài viết">
@@ -32,6 +33,10 @@
 				@else
 					{{ 'Không Xác Định' }}
 				@endif
+			</p>
+			<!-- So Luot Xem-->
+			<p><span class="glyphicon glyphicon-eye-open"></span>
+				Số lượt xem: <a href="#">{!! $tintuc->SoLuotXem !!}</a>
 			</p>
 			<hr>
 

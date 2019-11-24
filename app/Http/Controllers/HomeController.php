@@ -45,7 +45,9 @@ class HomeController extends Controller
     }
 
     public function TinTuc($unsigned_name){
-    	$tintuc = TinTuc::where('TieuDeKhongDau',$unsigned_name)->first();
+		$tintuc = TinTuc::where('TieuDeKhongDau',$unsigned_name)->first();
+		$tintuc ->SoLuotXem = $tintuc ->SoLuotXem + 1;
+		$tintuc -> save();
     	$tinnoibat = TinTuc::where('NoiBat',1)->take(4)->get();
     	$tinlienquan = TinTuc::where('idLoaiTin',$tintuc->idLoaiTin)->take(4)->get();
     	return view('page.detail',['tintuc' => $tintuc, 'tinnoibat' => $tinnoibat, 'tinlienquan' => $tinlienquan]);
