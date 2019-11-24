@@ -5,6 +5,7 @@ use App\TheLoai;
 use App\LoaiTin;
 use App\TinTuc;
 use App\Comment;
+use App\TuyenSinh;
 
 use Illuminate\Http\Request;
 
@@ -19,8 +20,9 @@ class TinTucController extends Controller
 
     public function Them(){
     	$theloai = TheLoai::all();
-    	$loaitin = LoaiTin::all();
-    	return view('admin.tintuc.them',['theloai'=>$theloai, 'loaitin'=>$loaitin]);
+		$loaitin = LoaiTin::all();
+		$tuyensinh = TuyenSinh::all();
+    	return view('admin.tintuc.them',['theloai'=>$theloai, 'loaitin'=>$loaitin,'tuyensinh'=>$tuyensinh]);
     }
 
     public function XuLyThemTT(Request $request){
@@ -73,7 +75,8 @@ class TinTucController extends Controller
     		$tintuc->Hinh = ''; // Nếu người dùng không upload hình thì sẽ gán đường dẫn là rỗng
 
     	$tintuc->NoiBat = $request->article_rep;
-    	$tintuc->idLoaiTin = $request->sub_cate;
+		$tintuc->idLoaiTin = $request->sub_cate;
+		$tintuc->idTuyenSinh = $request->tuyensinh_cate;
     	$tintuc->save();
 
     	return redirect('admin/tintuc/them')->with('message','Thêm Bài viết mới thành công!');
@@ -82,8 +85,9 @@ class TinTucController extends Controller
     public function Sua($id){
     	$tintuc = TinTuc::find($id);
     	$theloai = TheLoai::all();
-    	$loaitin = LoaiTin::all();
-    	return view('admin.tintuc.sua',['tintuc'=>$tintuc, 'theloai'=>$theloai, 'loaitin'=>$loaitin]);
+		$loaitin = LoaiTin::all();
+		$tuyensinh = TuyenSinh::all();
+    	return view('admin.tintuc.sua',['tintuc'=>$tintuc, 'theloai'=>$theloai, 'loaitin'=>$loaitin, 'tuyensinh'=>$tuyensinh]);
     }
 
     public function XuLySuaTT(Request $request,$id){

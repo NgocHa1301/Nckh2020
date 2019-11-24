@@ -18,8 +18,8 @@ Route::get('/kien', function(){
 	$tintuc = TinTuc::all();
 	foreach($tintuc as $chitiet){
 
-        echo $chitiet->LoaiTin->TheLoai->Ten ;
-        echo $chitiet->LoaiTin->Ten ;
+        echo $chitiet->LoaiTin->Ten . $chitiet->LoaiTin->TheLoai->Ten ;
+        // echo $chitiet->LoaiTin->Ten ;
 	}
         
 
