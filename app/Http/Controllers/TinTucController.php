@@ -21,8 +21,7 @@ class TinTucController extends Controller
     public function Them(){
     	$theloai = TheLoai::all();
 		$loaitin = LoaiTin::all();
-		$tuyensinh = TuyenSinh::all();
-    	return view('admin.tintuc.them',['theloai'=>$theloai, 'loaitin'=>$loaitin,'tuyensinh'=>$tuyensinh]);
+    	return view('admin.tintuc.them',['theloai'=>$theloai, 'loaitin'=>$loaitin]);
     }
 
     public function XuLyThemTT(Request $request){
@@ -76,7 +75,24 @@ class TinTucController extends Controller
 
     	$tintuc->NoiBat = $request->article_rep;
 		$tintuc->idLoaiTin = $request->sub_cate;
-		$tintuc->idTuyenSinh = $request->tuyensinh_cate;
+		// neu loai tin la bac dai hoc thi add idTuyenSinh
+		if($tintuc->idLoaiTin == 5){
+		$tuyensinh = new TuyenSinh;
+		$nganhhoc = $request->nganhhoc;
+		$tongdiem = $request->tongdiem;
+		$khoithi = $request->khoithi;
+		$tuyensinh->ten_truong =  $request->tentruong;
+		$tuyensinh->nganh_hoc =  $request->nganhhoc;
+		$tuyensinh->diemchuan =  $request->diemchuan;
+		$tuyensinh->khoi_thi =  $request->khoithi;
+		$tuyensinh-> save();
+		$tuyensinhnew = TuyenSinh::where('nganh_hoc','like',"%$nganhhoc%")->Where('khoi_thi','like',"%$khoithi%")->Where('diemchuan','<=',number_format($tongdiem))->take(1)->get();
+		$tintuc->idTuyenSinh = $tuyensinhnew->id;
+		}
+		// if($tintuc->idLoaiTin == 5){
+		// 	$tintuc->idTuyenSinh = $request->tuyensinh_cate;
+		// }
+		
     	$tintuc->save();
 
     	return redirect('admin/tintuc/them')->with('message','Thêm Bài viết mới thành công!');
@@ -86,8 +102,8 @@ class TinTucController extends Controller
     	$tintuc = TinTuc::find($id);
     	$theloai = TheLoai::all();
 		$loaitin = LoaiTin::all();
-		$tuyensinh = TuyenSinh::all();
-    	return view('admin.tintuc.sua',['tintuc'=>$tintuc, 'theloai'=>$theloai, 'loaitin'=>$loaitin, 'tuyensinh'=>$tuyensinh]);
+		
+    	return view('admin.tintuc.sua',['tintuc'=>$tintuc, 'theloai'=>$theloai, 'loaitin'=>$loaitin]);
     }
 
     public function XuLySuaTT(Request $request,$id){

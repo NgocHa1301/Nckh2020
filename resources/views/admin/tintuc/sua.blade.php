@@ -60,7 +60,9 @@
                             </div>
                             <div class="form-group">
                                 <p><label>Chọn thông tin tuyển sinh (nếu có)</label></p>
+                                
                                 <select class="form-control input-width subcatefield" name="tuyensinh_cate">
+                                <option value="-1" selected="selected">---lựa chọn---</option>
                                     @foreach($tuyensinh as $chitietTS)
                                         <option value="{{ $chitietTS->id }}">{{ $chitietTS->ten_truong }}, ma nganh {{ $chitietTS->nganh_hoc }},  khoi thi {{ $chitietTS->khoi_thi }}</option>
                                     @endforeach
