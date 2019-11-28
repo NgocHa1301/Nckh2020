@@ -15,12 +15,28 @@ use App\TinTuc;
 use App\TheLoai;
 Route::get('/trang-chu', 'HomeController@index');
 Route::get('/kien', function(){
-	$tintuc = TinTuc::all();
-	foreach($tintuc as $chitiet){
+	$tuyensinh = new TuyenSinh;
+		// $nganhhoc = $request->nganhhoc;
+		// $ten_truong = $request->ten_truong;
+		// $khoithi = $request->khoithi;
+		// $diemchuan = $request->diemchuan;
+		$nganhhoc = "1";
+		$tentruong = "Học viện tài chính";
+		$khoithi = "A00";
+		$diemchuan = 23;
+		$tuyensinh->ten_truong =  $tentruong;
+		$tuyensinh->nganh_hoc =  $nganhhoc;
+		$tuyensinh->diemchuan =  $diemchuan;
+		$tuyensinh->khoi_thi =  $khoithi;
+		$tuyensinh-> save();
+		$tuyensinhnew = TuyenSinh::where('nganh_hoc','like',"%$nganhhoc%")->Where('khoi_thi','like',"%$khoithi%")->Where('ten_truong','like',"%$tentruong%")->first();
+		echo $tuyensinhnew->id;
+	// foreach($tintuc as $chitiet){
+	// 	$tintuc = TinTuc::all();
 
-        echo $chitiet->LoaiTin->Ten . $chitiet->LoaiTin->TheLoai->Ten ;
-        // echo $chitiet->LoaiTin->Ten ;
-	}
+    //     echo $chitiet->LoaiTin->Ten . $chitiet->LoaiTin->TheLoai->Ten ;
+    //     // echo $chitiet->LoaiTin->Ten ;
+	// }
         
 
 	// $idList = TuyenSinh::where('nganh_hoc','=',"1")->Where('khoi_thi','=',"A01")->Where('diemchuan','>=',number_format("21"))->pluck('id')->toArray();

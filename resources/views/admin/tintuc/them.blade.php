@@ -85,12 +85,19 @@
                                     <input name="article_rep" value="0" type="radio">Không
                                 </label>
                             </div>
+                            <div class="form-group">
+                                <p><label>Phục vụ tư vấn?</label></p>
+                                <label class="checkbox">
+                                    <input name="guide_rep" value="1" type="radio">Có
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="guide_rep" value="0" checked="" type="radio">Không
+                                </label>
+                            </div>
                            
                                 
                             <div class="form-group">
-    <p>
-        <label>Điền thông tin tuyển sinh (nếu có)</label>
-    </p>
+
     <p>
         <label>Chọn nhóm ngành</label>
     </p>
@@ -301,12 +308,12 @@
     <option value="D96">D96 - Toán, Khoa học xã hội, Anh</option>
     <option value="D97">D97 - Toán, Khoa học xã hội, Tiếng Pháp</option>
     <option value="H00">H00 - Ngữ văn, Năng khiếu vẽ Nghệ thuật 1, Năng khiếu vẽ Nghệ thuật 2</option>
-    <option value="H01">H01 - Toán, Ngữ văn, Vẽ Mỹ thuật</option>
-    <option value="H02">H02 - Toán, Vẽ Hình họa mỹ thuật, Vẽ trang trí màu</option>
-    <option value="H03">H03 - Toán, Khoa học tự nhiên, Vẽ Năng khiếu</option>
-    <option value="H04">H04 - Toán, Tiếng Anh, Vẽ Năng khiếu</option>
-    <option value="H05">H05 - Ngữ văn, Khoa học xã hội, Vẽ Năng khiếu</option>
-    <option value="H06">H06 - Ngữ văn, Tiếng Anh,Vẽ mỹ thuật</option>
+    <option value="H01">H01 - Toán, Ngữ văn , Vẽ Mỹ thuật</option>
+    <option value="H02">H02 - Toán, Vẽ Hình  họa mỹ thuật, Vẽ trang trí màu</option>
+    <option value="H03">H03 - Toán, Khoa họ c tự nhiên, Vẽ Năng khiếu</option>
+    <option value="H04">H04 - Toán, Tiếng A nh, Vẽ Năng khiếu</option>
+    <option value="H05">H05 - Ngữ văn, Khoa  học xã hội, Vẽ Năng khiếu</option>
+    <option value="H06">H06 - Ngữ văn, Tiến g Anh,Vẽ mỹ thuật</option>
     <option value="H07">H07 - Toán, Hình họa, Trang trí</option>
     <option value="H08">H08 - Ngữ văn, Lịch sử, Vẽ mỹ thuật</option>
     <option value="K01">K01 - Toán, Tiếng Anh, Tin học</option>
@@ -316,10 +323,10 @@
     <option value="M03">M03 - Văn, Năng khiếu 1, Năng khiếu 2</option>
     <option value="M04">M04 - Toán, Đọc kể diễn cảm, Hát - Múa</option>
     <option value="M09">M09 - Toán, NK Mầm non 1( kể chuyện, đọc, diễn cảm), NK Mầm non 2 (Hát)</option>
-    <option value="M10">M10 - </option>
-    <option value="M11">M11 - Ngữ Văn, năng kiếu báo chí, Tiếng Anh</option>
-    <option value="M12">M12 - Ngữ Văn, năng kiếu báo chí, Vật Lý</option>
-    <option value="M13">M13 - </option>
+    <option value="M10">M10 - </option> 
+    <option value="M11">M11 - Ngữ Văn,   kiếu báo chí, Tiếng Anh</option>
+    <option value="M12">M12 - Ngữ Văn,   kiếu báo chí, Vật Lý</option>
+    <option value="M13">M13 - </option> 
     <option value="M14">M14 - Ngữ văn, Năng khiếu báo chí, Toán</option>
     <option value="M15">M15 - Ngữ văn, Năng khiếu báo chí, Tiếng Anh</option>
     <option value="M16">M16 - Ngữ văn, Năng khiếu báo chí, Vật lý</option>

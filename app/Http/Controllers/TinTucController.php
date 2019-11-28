@@ -76,18 +76,25 @@ class TinTucController extends Controller
     	$tintuc->NoiBat = $request->article_rep;
 		$tintuc->idLoaiTin = $request->sub_cate;
 		// neu loai tin la bac dai hoc thi add idTuyenSinh
-		if($tintuc->idLoaiTin == 5){
-		$tuyensinh = new TuyenSinh;
-		$nganhhoc = $request->nganhhoc;
-		$tongdiem = $request->tongdiem;
-		$khoithi = $request->khoithi;
-		$tuyensinh->ten_truong =  $request->tentruong;
-		$tuyensinh->nganh_hoc =  $request->nganhhoc;
-		$tuyensinh->diemchuan =  $request->diemchuan;
-		$tuyensinh->khoi_thi =  $request->khoithi;
+		if($request->guide_rep == 1){
+		// $nganhhoc = $request->nganhhoc;
+		// $tentruong = $request->tentruong;
+		// $khoithi = $request->khoithi;
+		// $diemchuan = $request->diemchuan;
+		$nganhhoc = "1";
+		$tentruong = "Học viện tài chính";
+		$khoithi = "A00";
+		$diemchuan = 23;
+		$tuyensinh->ten_truong =  $tentruong;
+		$tuyensinh->nganh_hoc =  $nganhhoc;
+		$tuyensinh->diemchuan =  $diemchuan;
+		$tuyensinh->khoi_thi =  $khoithi;
 		$tuyensinh-> save();
-		$tuyensinhnew = TuyenSinh::where('nganh_hoc','like',"%$nganhhoc%")->Where('khoi_thi','like',"%$khoithi%")->Where('diemchuan','<=',number_format($tongdiem))->take(1)->get();
-		$tintuc->idTuyenSinh = $tuyensinhnew->id;
+		$tuyensinhnew = TuyenSinh::where('nganh_hoc','like',"%$nganhhoc%")->Where('khoi_thi','like',"%$khoithi%")->Where('ten_truong','like',"%$tentruong%")->first();
+		if (!is_null($tuyensinhnew)){
+			$tintuc-> idTuyenSinh = $tuyensinhnew -> id;
+		}
+
 		}
 		// if($tintuc->idLoaiTin == 5){
 		// 	$tintuc->idTuyenSinh = $request->tuyensinh_cate;
