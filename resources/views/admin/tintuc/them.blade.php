@@ -175,7 +175,7 @@
 <p>
     <label>Nhập tổng điểm</label>
 </p>
-<input class="form-control input-width" placeholder="Tổng điểm 3 môn dự kiến" type="tongdiem" name="tongdiem" />
+<input class="form-control input-width" placeholder="Điểm chuẩn"  name="diemchuan" />
 <p>
     <label>Nhập tên trường</label>
 </p>
