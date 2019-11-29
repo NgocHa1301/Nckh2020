@@ -29,8 +29,8 @@ Route::get('/kien', function(){
 		$tuyensinh->diemchuan =  $diemchuan;
 		$tuyensinh->khoi_thi =  $khoithi;
 		$tuyensinh-> save();
-		$tuyensinhnew = TuyenSinh::where('nganh_hoc','like',"%$nganhhoc%")->Where('khoi_thi','like',"%$khoithi%")->Where('ten_truong','like',"%$tentruong%")->first();
-		echo $tuyensinhnew->id;
+		error_log('save xong tuyen sinh');
+		echo $tuyensinh->id;
 	// foreach($tintuc as $chitiet){
 	// 	$tintuc = TinTuc::all();
 

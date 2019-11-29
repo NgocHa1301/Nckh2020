@@ -101,7 +101,7 @@
     <p>
         <label>Chọn nhóm ngành</label>
     </p>
-    <select class="form-control input-width catefield" name="nganhhoc" id="nganhhoc">
+    <select class="form-control input-width" name="nganhhoc" id="nganhhoc">
         <option value="0" selected="selected">---Tất cả các nghành---</option>
         <option value="1">Kế toán - Kiểm toán</option>
 
@@ -183,7 +183,7 @@
 <p>
     <label>Khối thi</label>
 </p>
-<select class="form-control input-width catefield" name="khoithi" id="block">
+<select class="form-control input-width" name="khoithi" id="block">
     <option value="">--Khối thi--</option>
     <option value="A00">A00 - Toán, Vật lí, Hóa học</option>
     <option value="A01">A01 - Toán, Vật lí, Tiếng Anh</option>

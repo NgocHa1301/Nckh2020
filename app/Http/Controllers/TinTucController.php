@@ -91,13 +91,15 @@ class TinTucController extends Controller
 		$tuyensinh->diemchuan =  $diemchuan;
 		$tuyensinh->khoi_thi =  $khoithi;
 		$tuyensinh-> save();
+		error_log('save xong tuyen sinh');
+		$tintuc-> idTuyenSinh = $tuyensinh -> id;
 		// $tuyensinhnew = TuyenSinh::where('nganh_hoc','like',"%$nganhhoc%")->Where('khoi_thi','like',"%$khoithi%")->Where('ten_truong','like',"%$tentruong%")->first();
-		if ($tuyensinh-> save()){
-			$tintuc-> idTuyenSinh = $tuyensinh -> id;
-		}
-		else{
-			$tintuc-> idTuyenSinh = -1;
-		}
+		// if ($tuyensinh-> save()){
+		// 	$tintuc-> idTuyenSinh = $tuyensinh -> id;
+		// }
+		// else{
+		// 	$tintuc-> idTuyenSinh = -1;
+		// }
 
 		}
 		// if($tintuc->idLoaiTin == 5){
