@@ -31,10 +31,10 @@
                         <p> Tổ 6, phường Túc Duyên, Thành phố Thái Nguyên, tỉnh Thái Nguyên </p>
 
                         <h4><span class="glyphicon glyphicon-envelope"></span> Email : </h4>
-                        <p>c3chuyen@thainguyen.edu.vn </p>
+                        <p>trunghieuch2@gmail.com </p>
 
                         <h4><span class="glyphicon glyphicon-phone-alt"></span> Điện thoại : </h4>
-                        <p>(0208) 656 2288 </p>
+                        <p>+84 868 701 413</p>
 
 
 
